@@ -5,8 +5,8 @@ The data was obtained from [Prof David Reich site group](http://reichdata.hms.ha
 
 **Important: Please read carefully the following instructions in the given lab site.**
 
-The pipe:
+# The pipe:
 
 1) Install the vcftools and plink
-2) Follow the instructions at [Bash commands](bash_vcftools_plink)
+2) All basic commands are here [Bash commands](bash_vcftools_plink)
 3) 
