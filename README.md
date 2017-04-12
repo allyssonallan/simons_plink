@@ -8,5 +8,7 @@ The data was obtained from [Prof David Reich site group](http://reichdata.hms.ha
 # The pipe:
 
 1) Install the vcftools and plink
-2) All basic commands are here [Bash commands](bash_vcftools_plink)
-3) 
+2) All basic commands are [here](bash_vcftools_plink)
+3) For each sample in fam file we did these following commands in [R language](r_pipe)
+4) 
+ 
