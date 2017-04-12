@@ -1,4 +1,4 @@
-#install vcftools and plink
+
 # vcftools to plink
 vcftools --vcf 1.vcf --min-alleles 2 --max-alleles 2 --plink --out simons_ref1
 # pedfile to bfile
