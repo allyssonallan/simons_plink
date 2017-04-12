@@ -6,5 +6,7 @@ The data was obtained from [Prof David Reich site group](http://reichdata.hms.ha
 **Important: Please read carefully the following instructions in the given lab site.**
 
 The pipe:
-- 
 
+-- Install the vcftools and plink
+-- Follow the instructions at [Bash commands](simons_plink/bash_vcftools_plink)
+-- 
