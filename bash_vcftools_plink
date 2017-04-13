@@ -18,12 +18,13 @@ vcftools --vcf 2.vcf --min-alleles 2 --max-alleles 2 --plink --out simons_ref2
 
 #automatically
 for i in {3..279};
-do vcftools --gzvcf ${i}.vcf.gz --min-alleles 2 --max-alleles 2 --plink --out simons_ref${i}; 
-./plink --file simons_ref${i} --make-bed --out simons_ref${i};
-./plink --bfile simons_ref${i} --bmerge simons_m$[${i}-1] --out simons_m${i};
-if [ -e *${i}.missnp ];
-then ./plink --bfile simons_ref${i} --exclude simons_m${i}.missnp --make-bed --out simons_ref${i}f;
-./plink --bfile simons_m$[${i}-1] --exclude simons_m${i}.missnp --make-bed --out simons_m${i}f;
-./plink --bfile simons_ref${i}f --bmerge simons_m${i}f --make-bed --out simons_m${i};
-fi;
+do 
+  vcftools --gzvcf ${i}.vcf.gz --min-alleles 2 --max-alleles 2 --plink --out simons_ref${i}; 
+  ./plink --file simons_ref${i} --make-bed --out simons_ref${i};
+  ./plink --bfile simons_ref${i} --bmerge simons_m$[${i}-1] --out simons_m${i};
+  if [ -e *${i}.missnp ];
+    then ./plink --bfile simons_ref${i} --exclude simons_m${i}.missnp --make-bed --out simons_ref${i}f;
+    ./plink --bfile simons_m$[${i}-1] --exclude simons_m${i}.missnp --make-bed --out simons_m${i}f;
+    ./plink --bfile simons_ref${i}f --bmerge simons_m${i}f --make-bed --out simons_m${i};
+  fi;
 done;
