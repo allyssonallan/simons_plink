@@ -6,17 +6,19 @@ vcftools --vcf 1.vcf --min-alleles 2 --max-alleles 2 --plink --out simons_ref1
 
 # vcftools to plink
 vcftools --vcf 2.vcf --min-alleles 2 --max-alleles 2 --plink --out simons_ref2
+
 # pedfile to bfile
 ./plink --file simons_ref2 --make-bed --out simons_ref2
+
 # merge
 ./plink --bfile simons_ref1 --bmerge simons_ref2 --out simons_m2
-# if not 
-# prune triallelic merge problems and rewrite
+
+# if not, prune triallelic merge problems and rewrite
 ./plink --bfile simons_ref1 --exclude simons_m2.missnp --out simons_ref1f
 ./plink --bfile simons_m2 --exclude simons_m2.missnp --out simons_m2f
 ./plink --bfile simons_ref1f --bmerge simons_m2f --out simons_m2
 
-#automatically
+# loop for the 276 samples
 for i in {3..279};
 do 
   vcftools --gzvcf ${i}.vcf.gz --min-alleles 2 --max-alleles 2 --plink --out simons_ref${i}; 
